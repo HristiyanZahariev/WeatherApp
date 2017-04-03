@@ -1,0 +1,29 @@
+<html>
+<body>
+  <div class="vid-container">
+
+    <video class="bgvid" autoplay="autoplay" muted="muted" preload="auto" loop>
+        <source src="./videos/clouds.mp4" type="video/webm">
+    </video>
+
+    <div class="inner-container" id="boxSearch">
+    
+      <div class="box">
+        <h1>Search</h1>
+        <input type="text" name="city" [(ngModel)]="city" placeholder="Enter a city"/>
+        <button id="searchBtn" (click)="searchWeather()">Search</button>
+          <div *ngIf="weather" class="weather">
+            <span class="city">{{weather.name}}</span><br />
+            <span class="temperature"> Temperature: {{ weather.main.temp - 272.15 }}°C </span><br />
+            <span class="windSpeed">Wind speed: {{ weather.wind.speed }} km/h </span>
+            <div *ngFor="let weather of weather.weather">
+              <span class="windTemperature">{{ weather.description }}</span>
+            </div>
+          </div>
+      </div>
+
+    </div>
+</div>
+
+</body>
+</html>
